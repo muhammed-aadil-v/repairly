@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Status - ReparoHub</title>
+    <link rel="stylesheet" href="../css/cust_dash.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        .status-badge {
+            padding: 6px 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.85em;
+        }
+        .status-in-progress { background-color: orange; }
+        .status-pending { background-color: gray; }
+        .status-diagnosed { background-color: blue; }
+        .status-parts-ordered { background-color: purple; }
+        .status-repairing { background-color: teal; }
+        .status-ready { background-color: green; }
+
+        .dropdown-content { display: none; }
+        .dropdown-content.show { display: block; }
+
+        .popup-overlay, .goodbye-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            align-items: center; justify-content: center;
+        }
+        .popup-box, .goodbye-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body onload="handleRepairStatusRedirect()">
+
+<!-- Sidebar -->
+<div class="dashboard">
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="../images/repairly.jpeg" alt="ReparoHub Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="./cust_dash.html">Home</a></li>
+            <li><a href="./repairstatus.html">Repair Status</a></li>
+            <li><a href="./showing.html">Service Centers</a></li>
+            
+            <li><a href="./index.html">Logout</a></li>
+        </ul>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Custom Logout Popup -->
+    <div id="logout-popup" class="popup-overlay">
+        <div class="popup-box">
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to log out?</p>
+            <div class="popup-buttons">
+                <button onclick="logoutUser()">Yes, Logout</button>
+                <button onclick="closeLogoutPopup()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- See You Soon Message -->
+    <div id="goodbye-message" class="goodbye-overlay">
+        <div class="goodbye-box">
+            <h3>See you soon 😊😊</h3>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h2>My Repair Requests</h2>
+        </div>
+
+        <!-- Ongoing Repairs Table -->
+        <table class="my-repair-requests-table">
+            <thead>
+                <tr>
+                    <th>RequestID</th>
+                    <th>Product</th>
+                    <th>Issue</th>
+                    <th>Service Center</th>
+                    <th>Request Date</th>
+                    <th>Expected Completion</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>iPhone 13</td>
+                    <td>Screen Crack</td>
+                    <td>FixTech Center</td>
+                    <td>Apr 15, 2025</td>
+                    <td>Apr 20, 2025</td>
+                    <td><span class="status-badge status-in-progress">In Progress</span></td>
+                    <td><a href="#" class="view-btn"><i class="fas fa-eye"></i> Chat</a></td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>HP Laptop</td>
+                    <td>Battery Issue</td>
+                    <td>PC World</td>
+                    <td>Apr 10, 2025</td>
+                    <td>Apr 18, 2025</td>
+                    <td><span class="status-badge status-parts-ordered">Parts Ordered</span></td>
+                    <td><a href="#" class="view-btn"><i class="fas fa-eye"></i> Chat</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Completed Repairs Dropdown -->
+        <div class="completed-repairs">
+            <button class="dropdown-btn" onclick="toggleDropdown()">Completed Repairs <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Issue</th>
+                            <th>Service Center</th>
+                            <th>Request Date</th>
+                            <th>Completion Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Samsung TV</td>
+                            <td>No Power</td>
+                            <td>ElectroFix</td>
+                            <td>Mar 20, 2025</td>
+                            <td>Mar 25, 2025</td>
+                            <td><button class="review-btn" onclick="redirectToReview('301')">Leave Review</button></td>
+                        </tr>
+                        <tr>
+                            <td>Canon Printer</td>
+                            <td>Paper Jam</td>
+                            <td>PrintWell Center</td>
+                            <td>Feb 10, 2025</td>
+                            <td>Feb 15, 2025</td>
+                            <td>
+                                <button class="view-review-btn" onclick="redirectToReview('302')" style="background: #cca702; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer;">
+                                    View Review
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown() {
+        document.querySelector(".dropdown-content").classList.toggle("show");
+    }
+
+    function showLogoutPopup() {
+        document.getElementById("logout-popup").style.display = "flex";
+    }
+
+    function closeLogoutPopup() {
+        document.getElementById("logout-popup").style.display = "none";
+    }
+
+    function logoutUser() {
+        document.getElementById("logout-popup").style.display = "none";
+        document.getElementById("goodbye-message").style.display = "flex";
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1500);
+    }
+
+    function handleRepairStatusRedirect() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const statusType = urlParams.get("status");
+        if (statusType === "completed") {
+            document.querySelector(".dropdown-content").classList.add("show");
+        }
+    }
+
+    function redirectToReview(repairId) {
+        window.location.href = `feedback.html?repair_id=${repairId}`;
+    }
+
+    document.getElementById("logout-btn").addEventListener("click", showLogoutPopup);
+</script>
+
+</body>
+</html>

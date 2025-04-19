@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReparoHub - Service Centers</title>
+  <link rel="stylesheet" href="../css/showing.css">
+  <link rel="stylesheet" href="../css/cust_dash.css">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+        <img src="../images/repairly.jpeg" alt="ReparoHub Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="./cust_dash.html">Home</a></li>
+      <li><a href="./repairstatus.html">Repair Status</a></li>
+      <li><a href="./showing.html">Service Centers</a></li>
+      
+      <li><a href="./index.html">Logout</a></li>
+  </ul>
+    <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search service centers...">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Service Centers List -->
+    <div class="service-centers-list">
+      <!-- Static Data for Service Centers -->
+      <div class="service-center-card">
+        <div class="card-header">
+          <h2>RepairX Service Center</h2>
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <p>📍 1234 Tech Lane, Silicon Valley, CA</p>
+        <div class="card-details">
+          <p><i class="fas fa-envelope"></i> repairx@service.com</p>
+          <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
+          <p><i class="fas fa-tools"></i> Specializations: Smartphone & Laptop Repair</p>
+        </div>
+        <a href="service_center_detail.html" class="btn-details">
+          View Details <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="service-center-card">
+        <div class="card-header">
+          <h2>TechFix Hub</h2>
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <p>📍 5678 Innovation Blvd, Tech City, TX</p>
+        <div class="card-details">
+          <p><i class="fas fa-envelope"></i> techfix@service.com</p>
+          <p><i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 5:00 PM</p>
+          <p><i class="fas fa-tools"></i> Specializations: Computer & Tablet Repair</p>
+        </div>
+        <a href="service_center_detail.html" class="btn-details">
+          View Details <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="service-center-card">
+        <div class="card-header">
+          <h2>Gizmo Repair Shop</h2>
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <p>📍 9101 Gadget Avenue, Los Angeles, CA</p>
+        <div class="card-details">
+          <p><i class="fas fa-envelope"></i> gizmo.repair@service.com</p>
+          <p><i class="fas fa-clock"></i> Mon - Sun: 10:00 AM - 7:00 PM</p>
+          <p><i class="fas fa-tools"></i> Specializations: Smartphone & Tablet Repair</p>
+        </div>
+        <a href="service_center_detail.html" class="btn-details">
+          View Details <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- If no service centers found -->
+      <div class="no-centers" style="display:none;">
+        <p>No service centers found in our database.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('search-input').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const cards = document.querySelectorAll('.service-center-card');
+      
+      cards.forEach(card => {
+        const centerName = card.querySelector('h2').textContent.toLowerCase();
+        const centerAddress = card.querySelector('p').textContent.toLowerCase();
+        
+        if (centerName.includes(searchTerm) || centerAddress.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

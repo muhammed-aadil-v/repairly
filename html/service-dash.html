@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Center Dashboard</title>
+    <link rel="stylesheet" href="../css/service-dash.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">  <img src="../images/repairly.jpeg" alt="Logo" style="height: 50px;"/></div>
+        <ul class="nav-links">
+            <li><a href="service-dash.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="active_repairs.html">Active Repairs</a></li>
+            <li><a href="complete.html">Completed Works</a></li>
+            <li><a href="services.html">Your Services</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome, Elite Repair Center</h1>
+
+        <!-- Repair Requests Table -->
+        <h2>Repair Requests</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Customer</th>
+                    <th>Issue</th>
+                    <th>Request Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample Data for Pending Requests -->
+                <tr>
+                    <td>Broken Laptop</td>
+                    <td>john.doe@example.com</td>
+                    <td>Screen flickering, needs repair</td>
+                    <td>Apr 18, 2025</td>
+                    <td>
+                        <form method="post" action="accept_request.html" style="display: inline;">
+                            <input type="hidden" name="status" value="accepted">
+                            <button type="submit" class="accept-btn">Accept</button>
+                        </form>
+                        <form method="post" action="reject_request.html" style="display: inline;">
+                            <input type="hidden" name="status" value="rejected">
+                            <button type="submit" class="reject-btn">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Broken Iron Box</td>
+                    <td>jane.smith@example.com</td>
+                    <td>Not heating up properly</td>
+                    <td>Apr 19, 2025</td>
+                    <td>
+                        <form method="post" action="accept_request.html" style="display: inline;">
+                            <input type="hidden" name="status" value="accepted">
+                            <button type="submit" class="accept-btn">Accept</button>
+                        </form>
+                        <form method="post" action="reject_request.html" style="display: inline;">
+                            <input type="hidden" name="status" value="rejected">
+                            <button type="submit" class="reject-btn">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+                <!-- No pending requests message -->
+                <tr>
+                    <td colspan="5">No pending repair requests</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

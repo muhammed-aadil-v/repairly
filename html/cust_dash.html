@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard - ReparoHub</title>
+    <link rel="stylesheet" href="../css/cust_dash.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="../images/repairly.jpeg" alt="ReparoHub Logo">
+                
+            </div>
+            <ul class="nav-links">
+                <li><a href="./cust_dash.html">Home</a></li>
+                <li><a href="./repairstatus.html">Repair Status</a></li>
+                <li><a href="./showing.html">Service Centers</a></li>
+                
+                <li><a href="./index.html">Logout</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="welcome-container">
+                            <h1 class="welcome-text">Welcome,Aadil</h1>
+            </div>
+            
+
+<!-- Quick Stats -->
+<div class="quick-stats">
+    <button class="stat">
+        <h3>Active Repairs</h3>
+        <p>3</p>
+    </button>
+    <button class="stat">
+        <h3>Completed Repairs</h3>
+        <p>6</p>
+    </button>
+    
+</div>
+
+            <!-- My Products Section -->
+            <div class="my-products">
+                <div class="products-header">
+                    <h2>My Products</h2>
+                    <button class="add-product-btn" onclick="redirectToProductRegistration()">+</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Model</th>
+                            <th>Warranty Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>iPhone 14 Pro</td>
+                            <td>A2890</td>
+                            <td>Under Warranty (6 months)</td>
+                            <td>
+                                <button class="repair-btn" onclick="redirectTorequestform()">Request Repair
+                                    
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Samsung Galaxy Tab S8</td>
+                            <td>SM-X700</td>
+                            <td>Out of Warranty</td>
+                            <td>
+                                <button class="repair-btn" onclick="redirectTorequestform()">
+                                    Request Repair
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dell Inspiron 15</td>
+                            <td>3501</td>
+                            <td>Under Warranty (3 months)</td>
+                            <td>
+                                <button class="repair-btn" onclick="redirectTorequestform()">
+                                    Request Repair
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectTorequestform() {
+            window.location.href = "repair.html";
+        }
+
+        function redirectToProductRegistration() {
+            window.location.href = "productreg.html";
+        }
+    </script>
+  
+<script>
+    function redirectToRepairs(statusType) {
+        window.location.href = "repair-status.html?status=" + statusType;
+    }
+</script>
+<script>
+    document.querySelector(".nav-toggle").addEventListener("click", function() {
+    document.querySelector(".nav-links").classList.toggle("active");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const settingsBtn = document.getElementById("settings-btn");
+    const settingsDropdown = document.querySelector(".settings-dropdown");
+
+    settingsBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        settingsDropdown.classList.toggle("active");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!settingsDropdown.contains(event.target)) {
+            settingsDropdown.classList.remove("active");
+        }
+    });
+});
+
+</script>
+
+    
+</body>
+</html>

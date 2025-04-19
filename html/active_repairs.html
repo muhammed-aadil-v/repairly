@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Repairs-0</title>
+    <link rel="stylesheet" href="../css/active-repairs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">  <img src="../images/repairly.jpeg" alt="Logo" style="height: 50px;"/></div>
+        <ul class="nav-links">
+            <li><a href="service-dash.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="active_repairs.html">Active Repairs</a></li>
+            <li><a href="complete.html">Completed Works</a></li>
+            <li><a href="services.html">Your Services</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-clipboard-list"></i> Active Repairs</h1>
+            <p class="subtitle">Currently managing repairs</p>
+        </div>
+        
+        <div class="table-container">
+            <table class="repair-table">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Customer</th>
+                        <th>Request Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="request-id-cell">
+                            <div class="request-id-info">
+                                <span class="request-id-badge">#1001</span>
+                                <span class="product-name-tooltip">iPhone 13 Pro</span>
+                            </div>
+                        </td>
+                        <td>john.doe@example.com</td>
+                        <td>Apr 10, 2025</td>
+                        <td>
+                            <span class="status-badge status-in_progress">
+                                <i class="status-icon fas fa-spinner"></i>
+                                In Progress
+                            </span>
+                        </td>
+                        <td class="actions-cell">
+                            <a href="service-detail.html" class="view-btn">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                            <a href="/chat/1001/" class="view-btn">
+                                <i class="fas fa-eye"></i> Chat
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="request-id-cell">
+                            <div class="request-id-info">
+                                <span class="request-id-badge">#1002</span>
+                                <span class="product-name-tooltip">Samsung Galaxy S22</span>
+                            </div>
+                        </td>
+                        <td>jane.smith@example.com</td>
+                        <td>Apr 14, 2025</td>
+                        <td>
+                            <span class="status-badge status-ready_for_pickup">
+                                <i class="status-icon fas fa-clipboard-check"></i>
+                                Ready for Pickup
+                            </span>
+                        </td>
+                        <td class="actions-cell">
+                            <a href="service-detail.html" class="view-btn">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                            <a href="/chat/1002/" class="view-btn">
+                                <i class="fas fa-eye"></i> Chat
+                            </a>
+                            <form method="post" action="/request/1002/update/" class="inline-form">
+                                <input type="hidden" name="status" value="completed">
+                                <button type="submit" class="complete-btn">
+                                    <i class="fas fa-check"></i> Complete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="request-id-cell">
+                            <div class="request-id-info">
+                                <span class="request-id-badge">#1003</span>
+                                <span class="product-name-tooltip">Dell XPS 13</span>
+                            </div>
+                        </td>
+                        <td>michael.lee@example.com</td>
+                        <td>Apr 15, 2025</td>
+                        <td>
+                            <span class="status-badge status-waiting_for_parts">
+                                <i class="status-icon fas fa-box-open"></i>
+                                Waiting for Parts
+                            </span>
+                        </td>
+                        <td class="actions-cell">
+                            <a href="service-detail.html" class="view-btn">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                            <a href="/chat/1003/" class="view-btn">
+                                <i class="fas fa-eye"></i> Chat
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Service Center Registration</title>
+  <link rel="stylesheet" href="../css/service.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <nav class="navbar">
+      <div class="logo">  <img src="../images/repairly.jpeg" alt="Logo" style="height: 50px;"/></div>
+      <ul class="nav-links">
+          <li><a href="{% url 'sdash' %}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="{% url 'active_repairs' %}">Active Repairs</a></li>
+          <li><a href="{% url 'complete' %}">Completed Works</a></li>
+          <li><a href="{% url 'reg:service_register' %}">reg service</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="logo-shape">
+        <img src="../images/repairly.jpeg" alt="Logo" style="height: 50px;"/>
+      </div>
+      <h2>Welcome to Our Service Center</h2>
+      <p>Add your service details to be visible to customers.</p>
+      <button>About Us</button>
+    </div>
+
+    <!-- Right Panel: Registration Form -->
+    <div class="right-panel">
+      <div class="form-container">
+        <h2>Add Service Details</h2>
+        
+        <!-- Display messages -->
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <form method="post">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <label for="service_name">Service Name</label>
+            <input
+              type="text"
+              id="service_name"
+              name="service_name"
+              placeholder="Enter Service Name"
+              required
+            />
+          </div>
+          
+          
+          <button type="submit">Add Service</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

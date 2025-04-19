@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReparoHub - Elite Repair Center</title>
+  <link rel="stylesheet" href="../css/service-detail.css">
+  <link rel="stylesheet" href="../css/cust_dash.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+        <img src="../images/repairly.jpeg" alt="ReparoHub Logo">
+    </div>
+    <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="repairstatus.html">Repair Status</a></li>
+        <li><a href="servicecenters.html">Service Centers</a></li>
+        <li><a href="logout.html">Logout</a></li>
+    </ul>
+    <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Service Center Page -->
+    <div class="service-center-page">
+      <div class="header">
+        <h1 id="service-center-header">Elite Repair Center</h1>
+      </div>
+
+      <div class="service-center-info">
+        <p class="service-center-location">📍 123 Main St, Springfield</p>
+        <p class="service-center-email">
+          <i class="fas fa-envelope"></i> elite.repair@example.com
+        </p>
+        <p class="service-center-hours">
+          <i class="fas fa-clock"></i> Mon - Fri, 9:00 AM - 6:00 PM
+        </p>
+      </div>
+
+      <div class="services-provided">
+        <h3><i class="fas fa-tools"></i> Services Provided</h3>
+        <ul>
+          <li>Smartphone Repair</li>
+          <li>Laptop Repair</li>
+          <li>Home Appliance Repair</li>
+          <li>Screen Replacement</li>
+        </ul>
+      </div>
+
+      <!-- Service History (for authenticated users) -->
+      <div class="service-history">
+        <h3><i class="fas fa-history"></i> Your Service History</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Service</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Apr 10, 2025</td>
+              <td>Laptop Screen Repair</td>
+              <td class="status-accepted">Accepted</td>
+            </tr>
+            <tr>
+              <td>Apr 12, 2025</td>
+              <td>Smartphone Battery Replacement</td>
+              <td class="status-completed">Completed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reviews-section">
+        <h3><i class="fas fa-comments"></i> Customer Reviews</h3>
+        <div class="review">
+          <div class="review-header">
+            <span class="review-author">John Doe</span>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <span class="review-date">Apr 14, 2025</span>
+          </div>
+          <p class="review-text">Great service! My laptop was repaired in no time. Highly recommend.</p>
+        </div>
+        <div class="review">
+          <div class="review-header">
+            <span class="review-author">Jane Smith</span>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="review-date">Apr 16, 2025</span>
+          </div>
+          <p class="review-text">Amazing experience! Quick and efficient. I’m definitely coming back for future repairs.</p>
+        </div>
+        <p>No reviews yet. Be the first to review!</p>
+      </div>
+      <button class="go-back-btn"><a href="complete.html">Go Back</a></button>
+    </div>
+  </div>
+</body>
+</html>

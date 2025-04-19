@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <!-- Login Form -->
+        <form method="post" class="login-form" action="/login">
+            <!-- CSRF token not needed in static version -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+
+            <!-- Login Button -->
+            <button type="submit" class="login-button"><a href="./cust_dash.html">Login</a></button>
+        </form>
+
+        <p class="forgot-password">Forgot your password? <a href="/forgot-password">Reset it here</a></p>
+        <!-- Signup Link -->
+        <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+</body>
+</html>

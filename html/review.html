@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Review - ReparoHub</title>
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="feedback-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <h2>Your Feedback <br> <span>Submitted!</span></h2>
+            <p>Thank you for helping us improve our services.</p>
+            <button onclick="gohome()">Go Back Home</button>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <label>Service Center Name:</label>
+            <input type="text" value="Elite Repair Center" readonly>
+            
+            <label>Your Rating:</label>
+            <div class="star-container">
+                <div class="star-rating">
+                    <!-- Static stars for rating -->
+                    <span class="fa fa-star selected"></span>
+                    <span class="fa fa-star selected"></span>
+                    <span class="fa fa-star selected"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            </div>
+
+            <label>Your Feedback:</label>
+            <textarea readonly>Great service! The team was very helpful and fixed my issue quickly. Would recommend!</textarea>
+
+            <!--<button onclick="window.location.href='{% url 'repairstatus' %}'">Back to Status</button> -->
+        </div>
+    </div>
+
+    <script>
+        function gohome(){
+            window.location.href = "dashboard.html"; // Replace with the correct URL for the home/dashboard page
+        }
+    </script>
+
+</body>
+</html>
